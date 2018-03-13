@@ -21,7 +21,7 @@ const mapDispatchToProps = dispatch =>
 		createFn(location, time, transportType) {
 			dispatch(createEvent(location, time, transportType));
 		},
-		selectFn(id, location, time, transportType) {
+		updateFn(id, location, time, transportType) {
 			dispatch(updateEvent(id, location, time, transportType))
 		},
 		clearFn() {

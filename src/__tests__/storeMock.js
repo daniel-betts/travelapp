@@ -4,7 +4,8 @@ const _store = {
 	getState	: jest.fn(() => 
 		({
 			events 			: _testEvents,	
-			transportTypes 	: _testTransportTypes
+			transportTypes 	: _testTransportTypes,
+			eventSelected 	: null
 		})
 	)
 };

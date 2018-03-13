@@ -7,14 +7,14 @@
 import UpdateEventForm from './UpdateEventForm.jsx';
 import CreateEventForm from './CreateEventForm.jsx';
 
-const EventFormWrapper = ({eventSelected, transportTypes, createFn, selectFn, clearFn}) => (
+const EventFormWrapper = ({eventSelected, transportTypes, createFn, updateFn, clearFn}) => (
 	<div>
 		{ 
 			eventSelected !== null 
 				? <UpdateEventForm 
 						eventSelected={eventSelected}
 						transportTypes={transportTypes}
-						submitFn={selectFn}
+						submitFn={updateFn}
 						clearFn={clearFn} />
 				: <CreateEventForm
 						transportTypes={transportTypes}
