@@ -1,0 +1,10 @@
+const constants = {
+	CREATE_EVENT 			: 'CREATE_EVENT',
+	SELECT_EVENT			: 'SELECT_EVENT',
+	DESELECT_EVENT			: 'DESELECT_EVENT',
+	DELETE_EVENT 			: 'DELETE_EVENT',
+	UPDATE_EVENT 			: 'UPDATE_EVENT',
+	SORT_EVENTS 			: 'SORT_EVENTS',
+};
+
+export default constants;
