@@ -10,9 +10,9 @@ export const createEvent = (location, time, transportType) => ({
 });
 
 
-export const selectEvent = (event) => ({
+export const selectEvent = (id) => ({
 	type 			: C.SELECT_EVENT,
-	event			: (event ? event : null),
+	id
 });
 
 

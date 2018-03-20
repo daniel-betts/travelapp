@@ -3,28 +3,28 @@ import { deselectEvent } from '../../../client/creators.js';
 
 describe('deselectEvent - no event selected', () => {
 	// Set up
-	const eventSelected = null;
-	const store = storeFactory({eventSelected});
+	const eventSelectedId = null;
+	const store = storeFactory({eventSelectedId});
 
 	// Do test
 	store.dispatch(deselectEvent());
 
 	// Assertions
-	it('should set eventSelected to null', () => {
-		expect(store.getState().eventSelected).toBeNull();
+	it('should set eventSelectedId to null', () => {
+		expect(store.getState().eventSelectedId).toBeNull();
 	});
 });
 
 describe('deselectEvent - event selected', () => {
 	// Set up
-	const eventSelected = {not: 'null',};
-	const store = storeFactory({eventSelected});
+	const eventSelectedId = {not: 'null',};
+	const store = storeFactory({eventSelectedId});
 
 	// Do test
 	store.dispatch(deselectEvent());
 
 	// Assertions
-	it('should set eventSelected to null', () => {
-		expect(store.getState().eventSelected).toBeNull();
+	it('should set eventSelectedId to null', () => {
+		expect(store.getState().eventSelectedId).toBeNull();
 	});
 });

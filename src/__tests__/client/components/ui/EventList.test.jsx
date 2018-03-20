@@ -36,7 +36,7 @@ describe('<EventList /> UI component', () => {
 			.first()
 			.find('.selectFn')
 			.simulate('click');
-		expect(_selectFn).toBeCalledWith(_testEvents[0]);
+		expect(_selectFn).toBeCalledWith(_testEvents[0].id);
 	});
 
 

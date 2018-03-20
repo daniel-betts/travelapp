@@ -1,12 +1,7 @@
 import storeFactory from '../../../client/store.js';
 import { deleteEvent } from '../../../client/creators.js';
 
-const eventSelected = {
-	id: '00002', 
-	location: 'Moa Hostel - Tokyo, Japan', 
-	time: '2017-11-04T22:30', 
-	transportType: 2
-};
+const eventSelectedId = '00002';
 
 const events = [
 	{
@@ -25,9 +20,9 @@ const events = [
 
 describe('delete event - eventSelected id given', () => {
 	// Set up
-	const store = storeFactory({events, eventSelected});
+	const store = storeFactory({events, eventSelectedId});
 
-	const id = eventSelected.id;
+	const id = eventSelectedId;
 
 	// Do test
 	store.dispatch(deleteEvent(id));
@@ -39,13 +34,13 @@ describe('delete event - eventSelected id given', () => {
 	});
 
 	it('should set eventSelected to null', () => {
-		expect(store.getState().eventSelected).toBeNull();
+		expect(store.getState().eventSelectedId).toBeNull();
 	});
 });
 
 describe('delete event - invalid id given', () => {
 	// Set up
-	const store = storeFactory({events, eventSelected});
+	const store = storeFactory({events, eventSelectedId});
 
 	const id = 'invalid';
 
@@ -58,13 +53,13 @@ describe('delete event - invalid id given', () => {
 	});
 
 	it('should not change eventSelected state', () => {
-		expect(store.getState().eventSelected).toEqual(eventSelected);
+		expect(store.getState().eventSelectedId).toEqual(eventSelectedId);
 	});
 });
 
 describe('delete event - valid id given different from eventSelected id', () => {
 	// Set up
-	const store = storeFactory({events, eventSelected});
+	const store = storeFactory({events, eventSelectedId});
 
 	const id = events[0].id;
 
@@ -78,6 +73,6 @@ describe('delete event - valid id given different from eventSelected id', () => 
 	});
 
 	it('should not change eventSelected state', () => {
-		expect(store.getState().eventSelected).toEqual(eventSelected);
+		expect(store.getState().eventSelectedId).toEqual(eventSelectedId);
 	});
 });

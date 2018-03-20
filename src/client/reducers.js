@@ -39,15 +39,15 @@ export const events = (state=[], action) => {
 	}
 };
 
-export const eventSelected = (state = null, action) => {
+export const eventSelectedId = (state = null, action) => {
 	switch(action.type) {
 		case C.SELECT_EVENT :
-			return action.event;
+			return action.id ? action.id : state;
 		case C.DESELECT_EVENT :
 		case C.UPDATE_EVENT :
 			return null;
 		case C.DELETE_EVENT:
-			return state === null || action.id === state.id ? null : state;
+			return state === null || action.id === state ? null : state;
 		default :
 			return state;
 	}

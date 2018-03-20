@@ -5,7 +5,7 @@ const _store = {
 		({
 			events 			: _testEvents,	
 			transportTypes 	: _testTransportTypes,
-			eventSelected 	: null
+			eventSelectedId	: null
 		})
 	)
 };

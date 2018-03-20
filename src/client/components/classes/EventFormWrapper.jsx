@@ -1,5 +1,5 @@
 /**
-	This file is in the 'classe' folder because it contains the 'pseudo-switch' statment.
+	This file is in the 'classes' folder because it contains the 'pseudo-switch' statment.
 	Once the 'CreateEventForm' and the 'UpdateEventForm' files are merged into one this 
 	file will be needed in the 'EventForm' container.
 */
@@ -10,7 +10,7 @@ import CreateEventForm from './CreateEventForm.jsx';
 const EventFormWrapper = ({eventSelected, transportTypes, createFn, updateFn, clearFn}) => (
 	<div>
 		{ 
-			eventSelected !== null 
+			eventSelected && eventSelected !== null 
 				? <UpdateEventForm 
 						eventSelected={eventSelected}
 						transportTypes={transportTypes}
