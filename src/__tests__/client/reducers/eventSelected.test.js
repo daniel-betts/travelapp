@@ -1,39 +1,29 @@
 import C from '../../../client/constants';
-import { eventSelected } from '../../../client/reducers';
+import { eventSelectedId } from '../../../client/reducers';
 import deepFreeze from 'deep-freeze';
 
-describe('eventSelected Reducer', () => {
-	const defaultState = {
-		id				: 'id', 
-		location		: 'Bahamas',
-		time			: '2017-11-04T19:40', 
-		transportType	: 1
-	};
+describe('eventSelectedId Reducer', () => {
+	const defaultState = 'id';
 
 	it('SELECT_EVENT success', () => {
-		const targetEvent = {
-			id				: 'id_selected', 
-			location		: 'Italy',
-			time			: '2017-09-04T19:40', 
-			transportType	: 3
-		};
+		const targetEventId = 'id_selected';
 
-		const state = Object.assign({}, defaultState);
+		const state = defaultState;
 
 		const action = {
 			type 			: C.SELECT_EVENT,
-			event 			: targetEvent
+			id 				: targetEventId
 		};
 
 		deepFreeze(state);
 		deepFreeze(action);
 
-		const result = eventSelected(state, action);
-		expect(result).toEqual(targetEvent);
+		const result = eventSelectedId(state, action);
+		expect(result).toEqual(targetEventId);
 	});
 
 	it('DELETE_EVENT different id', () => {
-		const state = Object.assign({}, defaultState);
+		const state = defaultState;
 
 		const action = {
 			type 			: C.DELETE_EVENT,
@@ -43,27 +33,27 @@ describe('eventSelected Reducer', () => {
 		deepFreeze(state);
 		deepFreeze(action);
 
-		const result = eventSelected(state, action);
+		const result = eventSelectedId(state, action);
 		expect(result).toEqual(state);
 	});
 
 	it('DELETE_EVENT same id', () => {
-		const state = Object.assign({}, defaultState);
+		const state = defaultState;
 
 		const action = {
 			type 			: C.DELETE_EVENT,
-			id 				: defaultState.id
+			id 				: defaultState
 		};
 
 		deepFreeze(state);
 		deepFreeze(action);
 
-		const result = eventSelected(state, action);
+		const result = eventSelectedId(state, action);
 		expect(result).toBeNull();
 	});
 
 	it('DESELECT_EVENT success', () => {
-		const state = Object.assign({}, defaultState);
+		const state = defaultState;
 
 		const action = {
 			type 			: C.DESELECT_EVENT
@@ -72,12 +62,12 @@ describe('eventSelected Reducer', () => {
 		deepFreeze(state);
 		deepFreeze(action);
 
-		const result = eventSelected(state, action);
+		const result = eventSelectedId(state, action);
 		expect(result).toBeNull();
 	});
 
 	it('UPDATE_EVENT success', () => {
-		const state = Object.assign({}, defaultState);
+		const state = defaultState;
 
 		const action = {
 			type 			: C.UPDATE_EVENT
@@ -86,12 +76,12 @@ describe('eventSelected Reducer', () => {
 		deepFreeze(state);
 		deepFreeze(action);
 
-		const result = eventSelected(state, action);
+		const result = eventSelectedId(state, action);
 		expect(result).toBeNull();
 	});
 
 	it('Not defined action type', () => {
-		const state = Object.assign({}, defaultState);
+		const state = defaultState;
 
 		const action = {
 			type 			: 'NOT_DEFINED'
@@ -100,7 +90,7 @@ describe('eventSelected Reducer', () => {
 		deepFreeze(state);
 		deepFreeze(action);
 
-		const result = eventSelected(state, action);
+		const result = eventSelectedId(state, action);
 		expect(result).toEqual(state);
 	});
 

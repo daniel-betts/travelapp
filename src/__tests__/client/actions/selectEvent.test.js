@@ -4,15 +4,12 @@ import { selectEvent } from '../../../client/creators.js';
 
 describe('selectEvent - event given', () => {
 	// Set up
-	const eventSelected = null;
+	const eventSelectedId = null;
 
-	const store = storeFactory({eventSelected});
+	const store = storeFactory({eventSelectedId});
 
 	const eventToSelect = {
-		id: '00002', 
-		location: 'Moa Hostel - Tokyo, Japan', 
-		time: '2017-11-04T22:30', 
-		transportType: 2
+		id : '00002'
 	};
 	
 	// Do test
@@ -20,15 +17,15 @@ describe('selectEvent - event given', () => {
 
 	// Assertions
 	it('should set selectedEvent to dispatched event.', () => {
-		expect(store.getState().eventSelected).toEqual(eventToSelect);
+		expect(store.getState().eventSelectedId).toEqual(eventToSelect);
 	});
 });
 
 describe('selectEvent - null event given', () => {
 	// Set up
-	const eventSelected = null;
+	const eventSelectedId = null;
 
-	const store = storeFactory({eventSelected});
+	const store = storeFactory({eventSelectedId});
 
 	const eventToSelect = null;
 
@@ -37,21 +34,21 @@ describe('selectEvent - null event given', () => {
 
 	// Assertions
 	it('should set selectedEvent to null.', () => {
-		expect(store.getState().eventSelected).toBeNull();
+		expect(store.getState().eventSelectedId).toBeNull();
 	});
 });
 
 describe('selectEvent - no event given', () => {
 	// Set up
-	const eventSelected = null;
+	const eventSelectedId = null;
 
-	const store = storeFactory({eventSelected});
+	const store = storeFactory({eventSelectedId});
 
 	// Do test
 	store.dispatch(selectEvent()); 
 
 	// Assertions
 	it('should set selectedEvent to null.', () => {
-		expect(store.getState().eventSelected).toBeNull();
+		expect(store.getState().eventSelectedId).toBeNull();
 	});
 });

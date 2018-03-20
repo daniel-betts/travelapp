@@ -48,7 +48,7 @@ describe('Events container', () => {
 
 		expect(_store.dispatch.mock.calls[0][0]).toEqual({
 			type		: 'SELECT_EVENT',
-			event		: 'id'
+			id			: 'id'
 		});
 	});
 

@@ -9,10 +9,9 @@ import { createEvent, deselectEvent, updateEvent } from '../../creators';
 // import UpdateEventForm 			from '../classes/UpdateEventForm.jsx';
 import EventFormWrapper from '../classes/EventFormWrapper.jsx';
 
-
 const mapStateToProps = state =>
 	({
-		eventSelected		: state.eventSelected,
+		eventSelected		: findEvent(state),
 		transportTypes 		: state.transportTypes,
 	});
 
@@ -28,6 +27,19 @@ const mapDispatchToProps = dispatch =>
 			dispatch(deselectEvent());
 		}
 	});
+
+const findEvent = state => {
+	return state.eventSelectedId
+		? state.events.find(e => e.id === state.eventSelectedId)
+		: null
+};
+
+const EventForm = connect(
+	mapStateToProps,
+	mapDispatchToProps
+)(EventFormWrapper)
+
+export default EventForm;
 
 // const EventFormWrapper = ({eventSelected, transportTypes, createFn, updateFn, clearFn}) => (
 // 		<div>
@@ -45,15 +57,6 @@ const mapDispatchToProps = dispatch =>
 // 		</div>
 
 // 	);
-
-const EventForm = connect(
-	mapStateToProps,
-	mapDispatchToProps
-)(EventFormWrapper)
-
-export default EventForm;
-
-
 
 // import {PropTypes} from 'prop-types';
 

@@ -2,7 +2,7 @@ import {
 	createStore, 
 	combineReducers,
 	applyMiddleware } from 'redux';
-import { events, eventSelected, sortedBy, transportTypes } from './reducers';
+import { events, eventSelectedId, sortedBy, transportTypes } from './reducers';
 import stateData from './state';
 
 // const storageKey = 'travel-app-redux-store';
@@ -24,7 +24,7 @@ const saver = store => next => action => {
 
 const storeFactory = (initialState = stateData) => 
 	applyMiddleware(logger, saver)(createStore)(
-		combineReducers({ events, eventSelected, sortedBy, transportTypes }), 
+		combineReducers({ events, eventSelectedId, sortedBy, transportTypes }), 
 		// (localStorage[storageKey])
 		// 	? JSON.parse(localStorage[storageKey])
 		// 	: initialState

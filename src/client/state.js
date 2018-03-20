@@ -15,7 +15,7 @@ const stateData = {
 			transportType: 2
 		}
 	],
-	eventSelected : null,
+	eventSelectedId : null,
 	sortedBy: 'SORT_BY_TIME',
 	transportTypes
 };

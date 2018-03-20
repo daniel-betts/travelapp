@@ -7,7 +7,7 @@ const EventList = ({events, transportTypes, deleteFn, selectFn}) => (
 			<Event 	key={i} {...event} 
 					transportType={transportTypes.filter(e=> e.id === event.transportType)[0].label}
 					deleteFn={() => deleteFn(event.id)}
-					selectFn={() => selectFn(event)} />
+					selectFn={() => selectFn(event.id)} />
 		))}
 	</div>
 );

@@ -1,12 +1,7 @@
 import storeFactory from '../../../client/store.js';
 import { updateEvent } from '../../../client/creators.js';
 
-const eventSelected = {
-	id: '00002', 
-	location: 'Moa Hostel - Tokyo, Japan', 
-	time: '2017-11-04T22:30', 
-	transportType: 2
-};
+const eventSelectedId = '00002';
 
 const events = [
 	{
@@ -29,9 +24,9 @@ const newTransportType = '34';
 
 describe('updateEvent - valid event given', () => {
 	// Set up
-	const store = storeFactory({events, eventSelected});
+	const store = storeFactory({events, eventSelectedId});
 
-	const id = eventSelected.id;
+	const id = eventSelectedId;
 
 	// Do test
 	store.dispatch(updateEvent(id, newLocation, newTime, newTransportType));
@@ -48,14 +43,14 @@ describe('updateEvent - valid event given', () => {
 		expect(updatedEvent.transportType).toEqual(parseInt(newTransportType));
 	});
 
-	it('should set eventSelected state to null', () => {
-		expect(store.getState().eventSelected).toBeNull();
+	it('should set eventSelectedId state to null', () => {
+		expect(store.getState().eventSelectedId).toBeNull();
 	});
 });
 
 describe('updateEvent - invalid event given', () => {
 	// Set up
-	const store = storeFactory({events, eventSelected});
+	const store = storeFactory({events, eventSelectedId});
 
 	const id = 'invalid id';
 
@@ -67,8 +62,8 @@ describe('updateEvent - invalid event given', () => {
 		expect(store.getState().events).toEqual(events);
 	});
 
-	it('should set eventSelected state to null', () => {
-		expect(store.getState().eventSelected).toBeNull();
+	it('should set eventSelectedId state to null', () => {
+		expect(store.getState().eventSelectedId).toBeNull();
 	});
 });
 
