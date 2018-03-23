@@ -1,5 +1,7 @@
 import { shallow } from 'enzyme';
+import toJson from 'enzyme-to-json';
 import Event from '../../../../client/components/ui/Event.jsx';
+
 
 describe('<Event /> UI component - no functions given', () => {
 	// Set up
@@ -31,6 +33,7 @@ describe('<Event /> UI component - no functions given', () => {
 	it('should have zero buttons', () => {
 		expect(result.find('button').length).toEqual(0);
 	});
+
 });
 
 describe('<Event /> UI component - deleteFn given', () => {
