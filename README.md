@@ -1,5 +1,5 @@
 # travelapp
-This is a simple app to plan the places you want to go when you travel.
+This app helps to plan the places you want to go when you travel.
 
 The basic idea is that you input a location, a time you want to leave, and which means of transportation you will use to get there.
 
@@ -13,6 +13,7 @@ Things that are missing:
 - Add sort by datetime.
 - Add localStorage.
 - Add service worker so we can use the app while we are travelling and don't have access to internet.
+- Snapshot tests.
 
 Ideas for features:
 - Have notifications when it is getting close to the time to leave.

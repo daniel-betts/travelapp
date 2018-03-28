@@ -3,6 +3,7 @@ import { Provider } from 'react-redux';
 import EventForm from '../../../../client/components/containers/EventForm.jsx';
 
 import _store from '../../../storeMock';
+import _storeWithSelected from '../../../storeWithSelectedMock';
 
 jest.mock('../../../../client/components/classes/EventFormWrapper.jsx');
 
@@ -23,7 +24,7 @@ describe('EventForm container', () => {
 			.transportTypes).toEqual(_testTransportTypes);
 	});
 
-	it('receives eventSelected', () => {
+	it('receives eventSelected as null', () => {
 		expect(wrapper.find('EventFormWrapperMock')
 			.props()
 			.eventSelected).toBeNull();
@@ -81,4 +82,21 @@ describe('EventForm container', () => {
 			}
 		);
 	});
+});
+
+describe('EventForm container 2', () => {
+
+	let wrapperSel = mount(
+		<Provider store={_storeWithSelected}>
+			<EventForm />
+		</Provider>
+	);
+
+	it('receives eventSelected object when eventSelecteId is valid event', () => {
+		
+		expect(wrapperSel.find('EventFormWrapperMock')
+			.props()
+			.eventSelected).not.toBeNull();
+	});
+
 });

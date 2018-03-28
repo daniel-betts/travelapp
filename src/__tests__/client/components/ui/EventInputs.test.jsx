@@ -51,6 +51,12 @@ describe('<EventInputs /> UI component - no input values given', () => {
 	it('should have the transportType value from props.', () => {
 		expect(result.find('select').props().value).not.toBeDefined();
 	});
+
+	it('should have a default onChange function that returns what it received', () =>{
+		var fn = result.find('input[type="text"]').props().onChange;
+		var value = 1;
+		expect(fn(value)).toBe(value);
+	});
 });
 
 describe('<EventInputs /> UI component - changeFn given', () => {
